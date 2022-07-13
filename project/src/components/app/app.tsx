@@ -3,6 +3,7 @@ import { BrowserRouter, Routes, Route } from 'react-router-dom';
 
 // Others
 import { AppRoute } from '../../consts';
+import NotFoundPage from '../../pages/not-found-page/not-found-page';
 import MainPage from '../../pages/main-page/main-page';
 import SignInPage from '../../pages/sign-in-page/sign-in-page';
 import FilmPage from '../../pages/film-page/film-page';
@@ -50,6 +51,7 @@ function App({
           path={AppRoute.Favorites}
           element={<MyListPage />}
         />
+        <Route path='*' element={<NotFoundPage />} />
       </Routes>
     </BrowserRouter>
   );
