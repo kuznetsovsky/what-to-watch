@@ -2,7 +2,8 @@
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
 
 // Others
-import { AppRoute } from '../../consts';
+import { AppRoute, AuthorizationStatus } from '../../consts';
+import PrivateRoute from '../private-route/private-route';
 import NotFoundPage from '../../pages/not-found-page/not-found-page';
 import MainPage from '../../pages/main-page/main-page';
 import SignInPage from '../../pages/sign-in-page/sign-in-page';
@@ -45,11 +46,23 @@ function App({
         />
         <Route
           path={AppRoute.AddReview}
-          element={<AddReviewPage />}
+          element={
+            <PrivateRoute
+              authorizationStatus={AuthorizationStatus.NoAuth}
+            >
+              <AddReviewPage />
+            </PrivateRoute>
+          }
         />
         <Route
           path={AppRoute.Favorites}
-          element={<MyListPage />}
+          element={
+            <PrivateRoute
+              authorizationStatus={AuthorizationStatus.NoAuth}
+            >
+              <MyListPage />
+            </PrivateRoute>
+          }
         />
         <Route path='*' element={<NotFoundPage />} />
       </Routes>
