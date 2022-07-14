@@ -1,5 +1,6 @@
 // Core
 import { MouseEvent } from 'react';
+import { Link } from 'react-router-dom';
 
 // Others
 import { FilmType } from '../../types/film-types';
@@ -36,9 +37,12 @@ const FilmCard = ({
         <img src={film.preview} alt="" width="280" height="175" />
       </div>
       <h3 className="small-film-card__title">
-        <a className="small-film-card__link" href="film-page.html">
+        <Link
+          to={`/films/${film.id}`}
+          className="small-film-card__link"
+        >
           {film.name}
-        </a>
+        </Link>
       </h3>
     </article>
   );
