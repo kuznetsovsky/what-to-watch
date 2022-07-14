@@ -7,7 +7,7 @@ type SmallFilmCardProps = {
 }
 
 // Component
-const SmallFilmCard = ({
+const FilmCard = ({
   film
 }: SmallFilmCardProps): JSX.Element => (
   <article className="small-film-card catalog__films-card">
@@ -22,4 +22,4 @@ const SmallFilmCard = ({
   </article>
 );
 
-export default SmallFilmCard;
+export default FilmCard;
