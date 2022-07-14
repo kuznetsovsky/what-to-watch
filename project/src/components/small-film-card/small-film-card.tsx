@@ -1,10 +1,9 @@
+// Others
+import { FilmType } from '../../types/film-types';
+
 // Types
 type SmallFilmCardProps = {
-  film: {
-    id: string;
-    name: string;
-    preview: string;
-  }
+  film: FilmType;
 }
 
 // Component

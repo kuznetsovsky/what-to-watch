@@ -5,14 +5,11 @@ import React from 'react';
 
 // Others
 import SmallFilmCard from '../../components/small-film-card/small-film-card';
+import { FilmsType } from '../../types/film-types';
 
 // Types
 type MainPageProps = {
-  films: {
-    id: string;
-    name: string;
-    preview: string;
-  }[];
+  films: FilmsType;
 }
 
 // Component
