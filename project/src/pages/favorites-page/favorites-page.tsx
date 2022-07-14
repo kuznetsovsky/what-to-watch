@@ -11,7 +11,7 @@ type MyListPageProps = {
 };
 
 // Component
-const MyListPage = ({
+const FavoritesPage = ({
   favoritesFilms
 }: MyListPageProps): JSX.Element => (
   <div className="user-page">
@@ -60,9 +60,9 @@ const MyListPage = ({
 );
 
 // Default Props
-MyListPage.defaultProps = {
+FavoritesPage.defaultProps = {
   favoritesFilms: favorites,
 };
 
 // Export
-export default MyListPage;
+export default FavoritesPage;
