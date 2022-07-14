@@ -4,7 +4,7 @@
 import React from 'react';
 
 // Others
-import SmallFilmCard from '../../components/small-film-card/small-film-card';
+import FilmsList from '../../components/films-list/films-list';
 import { FilmsType } from '../../types/film-types';
 
 // Types
@@ -114,11 +114,7 @@ const MainPage = ({
           </li>
         </ul>
 
-        <div className="catalog__films-list">
-          {films.map((film) => (
-            <SmallFilmCard key={film.id} film={film} />
-          ))}
-        </div>
+        <FilmsList films={films} />
 
         <div className="catalog__more">
           <button className="catalog__button" type="button">Show more</button>
