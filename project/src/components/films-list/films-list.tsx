@@ -1,8 +1,5 @@
-// Core
-import React from 'react';
-
 // Others
-import SmallFilmCard from '../small-film-card/small-film-card';
+import FilmCard from '../film-card/film-card';
 import { FilmsType } from '../../types/film-types';
 
 // Props
@@ -15,7 +12,7 @@ const FilmsList = ({
   films
 }: FilmsListProps): JSX.Element => (
   <div className="catalog__films-list">
-    {films.map((film) => <SmallFilmCard key={film.id} film={film} />)}
+    {films.map((film) => <FilmCard key={film.id} film={film} />)}
   </div>
 );
 
