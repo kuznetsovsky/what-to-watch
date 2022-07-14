@@ -11,14 +11,11 @@ import FilmPage from '../../pages/film-page/film-page';
 import PlayerPage from '../../pages/player-page/player-page';
 import MyListPage from '../../pages/my-list-page/my-list-page';
 import AddReviewPage from '../../pages/add-review-page/add-review-page';
+import { FilmsType } from '../../types/film-types';
 
 // Types
 type AppProps = {
-  films: {
-    id: string;
-    name: string;
-    preview: string;
-  }[];
+  films: FilmsType;
 }
 
 // Component
