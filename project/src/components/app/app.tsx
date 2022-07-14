@@ -9,7 +9,7 @@ import MainPage from '../../pages/main-page/main-page';
 import SignInPage from '../../pages/sign-in-page/sign-in-page';
 import FilmPage from '../../pages/film-page/film-page';
 import PlayerPage from '../../pages/player-page/player-page';
-import MyListPage from '../../pages/my-list-page/my-list-page';
+import FavoritesPage from '../../pages/favorites-page/favorites-page';
 import AddReviewPage from '../../pages/add-review-page/add-review-page';
 import { FilmsType } from '../../types/film-types';
 
@@ -57,7 +57,7 @@ function App({
             <PrivateRoute
               authorizationStatus={AuthorizationStatus.NoAuth}
             >
-              <MyListPage />
+              <FavoritesPage />
             </PrivateRoute>
           }
         />
