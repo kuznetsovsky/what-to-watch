@@ -1,16 +1,16 @@
-// Core
-import { useState } from 'react';
-
 // Others
 import { FilmListProps } from './films-list.props';
-import { SelectFilmId } from '../../types/film-types';
 import FilmCard from '../film-card/film-card';
+import { useActivePlayer } from '../../hooks/use-active-player/use-active-player';
 
 // Component
 export default function FilmsList({
   films
 }: FilmListProps): JSX.Element {
-  const [selectFilmId, setSelectFilmId] = useState<SelectFilmId>(null);
+  const {
+    setActivePlayerId,
+    renderPlayer,
+  } = useActivePlayer();
 
   return (
     <div className="catalog__films-list">
@@ -18,8 +18,8 @@ export default function FilmsList({
         <FilmCard
           key={film.id}
           film={film}
-          selectFilmId={selectFilmId}
-          changeSelectFilmId={setSelectFilmId}
+          setActivePlayerId={setActivePlayerId}
+          renderPlayer={renderPlayer}
         />
       ))}
     </div>

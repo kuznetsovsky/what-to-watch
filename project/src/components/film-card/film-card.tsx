@@ -4,30 +4,23 @@ import { Link } from 'react-router-dom';
 
 // Others
 import { FilmCardProps } from './film-card.props';
-import VideoPlayer from '../video-player/video-player';
 
 // Component
 export default function FilmCard({
   film,
-  selectFilmId,
-  changeSelectFilmId
+  setActivePlayerId,
+  renderPlayer,
 }: FilmCardProps): JSX.Element {
   const { id, name, preview, videoSrc } = film;
 
   return (
     <article
-      onMouseEnter={(event: MouseEvent) => changeSelectFilmId(id)}
-      onMouseLeave={(event: MouseEvent) => changeSelectFilmId(null)}
+      onMouseEnter={(event: MouseEvent) => setActivePlayerId(id)}
+      onMouseLeave={(event: MouseEvent) => setActivePlayerId(null)}
       className="small-film-card catalog__films-card"
     >
       <div className="small-film-card__image">
-        <VideoPlayer
-          width="280"
-          height="175"
-          isPlaying={selectFilmId === id}
-          poster={preview}
-          src={videoSrc}
-        />
+        {renderPlayer(videoSrc, id, { poster: preview })}
       </div>
       <h3 className="small-film-card__title">
         <Link
