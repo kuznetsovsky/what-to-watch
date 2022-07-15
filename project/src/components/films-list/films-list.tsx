@@ -2,23 +2,15 @@
 import { useState } from 'react';
 
 // Others
+import { FilmListProps } from './films-list.props';
+import { SelectFilmId } from '../../types/film-types';
 import FilmCard from '../film-card/film-card';
-import { FilmsType } from '../../types/film-types';
-
-// Props
-type FilmsListProps = {
-  films: FilmsType;
-}
 
 // Component
-const FilmsList = ({
+export default function FilmsList({
   films
-}: FilmsListProps): JSX.Element => {
-  const [, setSelectedFilm] = useState<string | null>(null);
-
-  const changeSelectedFilm = (id: string | null) => {
-    setSelectedFilm(id);
-  };
+}: FilmListProps): JSX.Element {
+  const [selectFilmId, setSelectFilmId] = useState<SelectFilmId>(null);
 
   return (
     <div className="catalog__films-list">
@@ -26,11 +18,10 @@ const FilmsList = ({
         <FilmCard
           key={film.id}
           film={film}
-          changeSelectedFilm={changeSelectedFilm}
+          selectFilmId={selectFilmId}
+          changeSelectFilmId={setSelectFilmId}
         />
       ))}
     </div>
   );
-};
-
-export default FilmsList;
+}

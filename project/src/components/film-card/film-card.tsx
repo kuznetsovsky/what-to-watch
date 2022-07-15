@@ -3,49 +3,40 @@ import { MouseEvent } from 'react';
 import { Link } from 'react-router-dom';
 
 // Others
-import { FilmType } from '../../types/film-types';
-
-// Types
-type SmallFilmCardProps = {
-  film: FilmType;
-  changeSelectedFilm: (id: string | null) => void;
-}
+import { FilmCardProps } from './film-card.props';
+import VideoPlayer from '../video-player/video-player';
 
 // Component
-const FilmCard = ({
+export default function FilmCard({
   film,
-  changeSelectedFilm
-}: SmallFilmCardProps): JSX.Element => {
-
-  const handleMouseEnter = (event: MouseEvent<HTMLElement>) => {
-    event.preventDefault();
-    changeSelectedFilm(film.id);
-  };
-
-  const handleMouseLeave = (event: MouseEvent<HTMLElement>) => {
-    event.preventDefault();
-    changeSelectedFilm(null);
-  };
+  selectFilmId,
+  changeSelectFilmId
+}: FilmCardProps): JSX.Element {
+  const { id, name, preview, videoSrc } = film;
 
   return (
     <article
-      onMouseEnter={handleMouseEnter}
-      onMouseLeave={handleMouseLeave}
+      onMouseEnter={(event: MouseEvent) => changeSelectFilmId(id)}
+      onMouseLeave={(event: MouseEvent) => changeSelectFilmId(null)}
       className="small-film-card catalog__films-card"
     >
       <div className="small-film-card__image">
-        <img src={film.preview} alt="" width="280" height="175" />
+        <VideoPlayer
+          width="280"
+          height="175"
+          isPlaying={selectFilmId === id}
+          poster={preview}
+          src={videoSrc}
+        />
       </div>
       <h3 className="small-film-card__title">
         <Link
-          to={`/films/${film.id}`}
+          to={`/films/${id}`}
           className="small-film-card__link"
         >
-          {film.name}
+          {name}
         </Link>
       </h3>
     </article>
   );
-};
-
-export default FilmCard;
+}

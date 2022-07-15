@@ -6,3 +6,5 @@ export type FilmType = {
 };
 
 export type FilmsType = FilmType[];
+
+export type SelectFilmId = string | null;
