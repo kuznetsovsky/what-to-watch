@@ -11,23 +11,15 @@ import FilmPage from '../../pages/film-page/film-page';
 import PlayerPage from '../../pages/player-page/player-page';
 import FavoritesPage from '../../pages/favorites-page/favorites-page';
 import AddReviewPage from '../../pages/add-review-page/add-review-page';
-import { FilmsType } from '../../types/film-types';
-
-// Types
-type AppProps = {
-  films: FilmsType;
-}
 
 // Component
-function App({
-  films
-}: AppProps): JSX.Element {
+function App(): JSX.Element {
   return (
     <BrowserRouter>
       <Routes>
         <Route
           path={AppRoute.Root}
-          element={<MainPage films={films} />}
+          element={<MainPage />}
         />
         <Route
           path={AppRoute.Login}
