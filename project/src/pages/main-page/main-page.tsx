@@ -3,18 +3,11 @@
 // Others
 import FilmsList from '../../components/films-list/films-list';
 import GenresList from '../../components/genres-list/genres-list';
-import { FilmsType } from '../../types/film-types';
 import Logo from '../../components/logo/logo';
-
-// Types
-type MainPageProps = {
-  films: FilmsType;
-}
+import { films } from '../../mocks/films';
 
 // Component
-const MainPage = ({
-  films
-}: MainPageProps): JSX.Element => (
+const MainPage = (): JSX.Element => (
   <>
     <section className="film-card">
       <div className="film-card__bg">
