@@ -12,3 +12,10 @@ export enum AuthorizationStatus {
   NoAuth = 'NO_AUTH',
   Unknown = 'UNKNOWN',
 }
+
+export enum RequestsStatus {
+  Idle = 'idle',
+  Success = 'success',
+  Loading = 'loading',
+  Failed = 'failed',
+}
